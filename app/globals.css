@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------
+   Paleta inspirada em consoles de satélite: fundo quase totalmente preto,
+   com uma única cor viva (azul) reservada para ações e links. Baseada no
+   guia de estilo do projeto (DESIGN.md).
+   --------------------------------------------------------------------- */
+:root {
+  /* escala neutra, do mais escuro ao mais claro */
+  --void-black: #0e1012;
+  --deep-charcoal: #15171b;
+  --gunmetal: #1c1f24;
+  --graphite: #23262d;
+  --steel: #333943;
+  --pewter: #444d5a;
+  --slate: #566171;
+  --ash: #8b96aa;
+  --fog: #a0aaba;
+  --silver: #bbc2ce;
+  --cloud: #d5dae2;
+  --white: #ffffff;
+
+  /* único acento cromático do site.
+     --primary usa o tom mais escuro (deep-signal) porque é nele que
+     texto branco é escrito por cima (botões) — o tom mais claro
+     (signal-blue) não passa no contraste mínimo de 4.5:1 com branco.
+     signal-blue continua disponível para links, ícones e bordas. */
+  --signal-blue: #007afc;
+  --deep-signal: #0062ca;
+  --map-green: #269a5a;
+
+  /* papéis semânticos usados pelos componentes */
+  --background: var(--void-black);
+  --foreground: var(--white);
+  --card: var(--deep-charcoal);
+  --card-foreground: var(--white);
+  --border: var(--gunmetal);
+  --border-strong: var(--steel);
+  --muted: var(--graphite);
+  --muted-foreground: var(--fog);
+  --primary: var(--deep-signal);
+  --primary-foreground: var(--white);
+  --accent: var(--map-green);
+  --accent-foreground: var(--white);
+
+  /* cores dos selos de veredito do verificador.
+     Exceção pontual à regra de "uma cor só": falso/enganoso precisam
+     ser diferenciáveis à primeira vista por segurança da informação. */
+  --veredito-falso: #e5484d;
+  --veredito-enganoso: #f2a93b;
+  --veredito-incerto: var(--slate);
+  --veredito-verdadeiro: var(--map-green);
+}
+
+@theme inline {
+  /* escala neutra crua, para ajustes finos pontuais */
+  --color-void-black: var(--void-black);
+  --color-deep-charcoal: var(--deep-charcoal);
+  --color-gunmetal: var(--gunmetal);
+  --color-graphite: var(--graphite);
+  --color-steel: var(--steel);
+  --color-pewter: var(--pewter);
+  --color-slate: var(--slate);
+  --color-ash: var(--ash);
+  --color-fog: var(--fog);
+  --color-silver: var(--silver);
+  --color-cloud: var(--cloud);
+  --color-white: var(--white);
+  --color-signal-blue: var(--signal-blue);
+  --color-deep-signal: var(--deep-signal);
+  --color-map-green: var(--map-green);
+
+  /* papéis semânticos usados nos componentes */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-veredito-falso: var(--veredito-falso);
+  --color-veredito-enganoso: var(--veredito-enganoso);
+  --color-veredito-incerto: var(--veredito-incerto);
+  --color-veredito-verdadeiro: var(--veredito-verdadeiro);
+
+  /* tipografia — Cera Pro não é uma fonte livre, usamos DM Sans no lugar */
+  --font-sans: var(--font-dm-sans);
+
+  /* escala de texto (tamanho + entrelinha + espaçamento de letras juntos).
+     O guia original pedia 10px para "caption", mas texto funcional abaixo
+     de 11px é ilegível em telas de alta densidade — subimos para 12px. */
+  --text-caption: 12px;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.04em;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.43;
+
+  --text-body: 16px;
+  --text-body--line-height: 1.5;
+
+  --text-subheading: 18px;
+  --text-subheading--line-height: 1.4;
+
+  --text-heading-sm: 24px;
+  --text-heading-sm--line-height: 1.33;
+
+  --text-heading: 32px;
+  --text-heading--line-height: 1.25;
+
+  --text-heading-lg: 44px;
+  --text-heading-lg--line-height: 1.14;
+  --text-heading-lg--letter-spacing: -0.02em;
+
+  --text-display: 68px;
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.02em;
+
+  /* raios nomeados, como no guia de estilo */
+  --radius-badges: 4px;
+  --radius-inputs: 6px;
+  --radius-chips: 12px;
+  --radius-cards: 24px;
+  --radius-buttons: 100px;
+
+  /* sombras do "console à meia-noite" */
+  --shadow-xl: inset 0px -175px 175px -75px rgb(14, 16, 18);
+  --shadow-xl-2: 0px 0px 100px 50px rgb(14, 16, 18);
+
+  /* as curvas padrão do navegador são fracas demais para parecerem
+     intencionais — substituímos ease-out/ease-in-out do próprio Tailwind
+     por versões mais "fortes", usadas em botões, abas e nas transições
+     de entrada ao rolar a página. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* textura sutil de grão sobre o fundo preto — sem isso, uma cor sólida
+   lisa demais fica com cara de vetor genérico gerado por computador.
+   Opacidade baixa é intencional (grão de verdade é discreto); por isso a
+   regra "buried-raster" do detector de anti-padrões foi ignorada para o
+   projeto (.impeccable/config.json) — ela existe pra achar fotos
+   escondidas por engano, não texturas decorativas propositalmente sutis. */
+.textura-grao {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  /* sem mix-blend-mode: "overlay" é quase um no-op sobre um fundo quase
+     preto (ele funciona como "multiply" abaixo de 50% de luminância, que
+     mal muda um preto já bem escuro). Opacidade simples é o que realmente
+     aparece aqui. */
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
