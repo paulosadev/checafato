@@ -8,12 +8,16 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
+// título curto só pra aba do navegador; o título mais completo continua
+// aparecendo quando o link é compartilhado (WhatsApp, Twitter/X etc.)
+const tituloAba = "ChecaFato";
 const titulo = "ChecaFato — IA contra Fake News";
 const descricao =
   "Projeto de extensão da FACIMP Wyden que usa Inteligência Artificial para ajudar a identificar notícias falsas, imagens fora de contexto e boatos de WhatsApp.";
 
 export const metadata = {
-  title: titulo,
+  metadataBase: new URL("https://checafato.vercel.app"),
+  title: tituloAba,
   description: descricao,
   // a imagem de pré-visualização (app/opengraph-image.js) e o ícone da
   // aba (app/icon.js) são detectados automaticamente pelo Next.js, não
