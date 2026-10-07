@@ -249,6 +249,12 @@ export default function Verificador() {
                   onChange={(e) => setLink(e.target.value)}
                   className="w-full rounded-inputs border border-steel bg-graphite px-4 py-3 text-body-sm text-white placeholder-slate outline-none transition-colors focus:border-signal-blue focus-visible:ring-2 focus-visible:ring-signal-blue/40"
                 />
+                <p className="mt-2 flex items-start gap-1.5 text-body-sm text-fog">
+                  <TriangleAlert size={15} className="mt-0.5 shrink-0" />
+                  Links do Instagram e Facebook costumam exigir login e a
+                  IA não consegue abrir o conteúdo. Nesses casos, prefira
+                  enviar um print na aba &quot;Foto / print&quot;.
+                </p>
               </div>
             )}
 
