@@ -1,4 +1,5 @@
 import { DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // DM Sans substitui a Cera Pro (fonte original do guia de estilo, que é
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
         <div className="textura-grao" aria-hidden="true" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
