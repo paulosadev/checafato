@@ -8,6 +8,9 @@ Sistemas de Informação da **FACIMP Wyden**, desenvolvida na disciplina de
 - **Orientador:** Prof. Me. Ricardo Lemos Oliveira
 - **Integrantes:** Paulo Levy Soares e Sá, Davi Neres Fernandes, Leandro
   Victor Silva Araújo e Ana Beatriz Santos da Costa
+- **Site publicado:** [checafato.vercel.app](https://checafato.vercel.app)
+
+![Página inicial do ChecaFato](docs/checafato.png)
 
 ## Sobre o projeto
 
@@ -21,16 +24,23 @@ A análise é feita por um modelo de IA através da API da [Groq](https://groq.c
 e não substitui a checagem feita por agências profissionais — por isso o
 resultado sempre vem acompanhado de um aviso sobre as limitações da IA.
 
+## API de IA
+
+A análise é feita pela **API da [Groq](https://console.groq.com/docs)**,
+chamada pelo servidor na rota `app/api/analisar/route.js`:
+
+| Tipo de conteúdo | Modelo | O que faz |
+| --- | --- | --- |
+| Print / foto | `qwen/qwen3.8-27b` (modelo de visão) | Lê e descreve o conteúdo da imagem |
+| Link / texto (e a descrição do print) | `openai/gpt-oss-120b` com busca na web (`browser_search`) | Cruza a informação com outras fontes e dá o veredito |
+
 ## Tecnologias usadas
 
-- [Next.js](https://nextjs.org/) (App Router) + React
-- [Tailwind CSS](https://tailwindcss.com/) para o visual e o modo claro/escuro
+- [Next.js](https://nextjs.org/) 16 (App Router) + [React](https://react.dev/) 19
+- [Tailwind CSS](https://tailwindcss.com/) 4 para o visual e o modo claro/escuro
 - [lucide-react](https://lucide.dev/) para os ícones
-- API da [Groq](https://console.groq.com/docs) para a análise com IA:
-  - Para prints/fotos: modelo de visão `qwen/qwen3.8-27b`
-  - Para links e textos: modelo `openai/gpt-oss-120b` com busca na web
-    integrada (`browser_search`), usado para cruzar a informação com outras
-    fontes
+- API da [Groq](https://console.groq.com/docs) para a análise com IA
+- [Vercel](https://vercel.com/) para a hospedagem
 
 > Os modelos usados foram checados na documentação da Groq na época do
 > desenvolvimento (outubro de 2026). Como a Groq costuma atualizar e
