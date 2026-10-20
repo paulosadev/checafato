@@ -4,7 +4,8 @@
 // e um menu simples para telas pequenas.
 
 import { useState } from "react";
-import { Menu, ShieldCheck, X } from "lucide-react";
+import { Menu, MessageSquare, ShieldCheck, X } from "lucide-react";
+import { LINK_FORMULARIO_AVALIACAO } from "@/lib/config";
 
 const linksNavegacao = [
   { href: "#checklist", texto: "Como identificar" },
@@ -42,6 +43,19 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* botão secundário de avaliação: só ícone até telas bem largas,
+              para não espremer a navegação ao lado */}
+          <a
+            href={LINK_FORMULARIO_AVALIACAO}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Avaliar o ChecaFato (abre em nova aba)"
+            className="hidden h-10 items-center justify-center gap-2 rounded-buttons border border-pewter px-3 text-body-sm font-medium text-foreground transition-colors duration-150 ease-out hover:border-signal-blue sm:inline-flex xl:px-5"
+          >
+            <MessageSquare size={16} />
+            <span className="hidden xl:inline">Avaliar</span>
+          </a>
+
           <a
             href="#verificador"
             className="hidden rounded-buttons bg-primary px-5 py-2.5 text-body-sm font-medium text-primary-foreground transition-[filter,transform] duration-150 ease-out hover:brightness-125 active:scale-[0.97] sm:inline-flex"
@@ -81,6 +95,16 @@ export default function Header() {
             className="mt-2 rounded-buttons bg-primary px-5 py-2.5 text-center text-body-sm font-medium text-primary-foreground transition-transform active:scale-[0.97]"
           >
             Verificar agora
+          </a>
+          <a
+            href={LINK_FORMULARIO_AVALIACAO}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuAberto(false)}
+            className="flex items-center justify-center gap-2 rounded-buttons border border-pewter px-5 py-2.5 text-body-sm font-medium text-foreground transition-transform active:scale-[0.97]"
+          >
+            <MessageSquare size={16} />
+            Avaliar o ChecaFato
           </a>
         </nav>
       )}

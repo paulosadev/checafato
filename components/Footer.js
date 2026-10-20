@@ -1,7 +1,8 @@
 // Rodapé simples da página.
 
-import { ShieldCheck } from "lucide-react";
+import { MessageSquare, ShieldCheck } from "lucide-react";
 import { infoProjeto } from "@/lib/dados";
+import { LINK_FORMULARIO_AVALIACAO } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -11,6 +12,15 @@ export default function Footer() {
           <ShieldCheck size={16} className="text-signal-blue" />
           ChecaFato
         </span>
+        <a
+          href={LINK_FORMULARIO_AVALIACAO}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 font-medium transition-colors hover:text-foreground"
+        >
+          <MessageSquare size={15} />
+          Avalie o ChecaFato
+        </a>
         <p className="text-center sm:text-right">
           Projeto de Extensão · {infoProjeto.curso} · {infoProjeto.instituicao} · 2026
         </p>

@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import ResultadoVerificacao from "./ResultadoVerificacao";
 import AoAparecer from "./AoAparecer";
+import ConviteAvaliacao from "./ConviteAvaliacao";
 
 const ABAS = [
   { id: "imagem", nome: "Foto / print", Icone: ImageUp },
@@ -302,6 +303,9 @@ export default function Verificador() {
           </button>
 
           {resultado && <ResultadoVerificacao resultado={resultado} />}
+
+          {/* convite para avaliar o site, só depois de uma análise concluída */}
+          {resultado && !carregando && !erro && <ConviteAvaliacao />}
         </div>
       </div>
     </section>
